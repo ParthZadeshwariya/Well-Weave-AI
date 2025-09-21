@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* WellWeave Design System - Neural patterns and flowing wellness aesthetics */
+
+@layer base {
+  :root {
+    /* Core brand colors - inspired by neural networks and wellness */
+    --background: 222 15% 4%;
+    --foreground: 210 40% 98%;
+    
+    /* Primary palette - deep blues and purples for trust and depth */
+    --primary: 242 47% 58%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 242 65% 70%;
+    
+    /* Secondary palette - warm accents for energy and connection */
+    --secondary: 280 25% 15%;
+    --secondary-foreground: 210 40% 98%;
+    
+    /* Accent colors - vibrant highlights */
+    --accent: 320 45% 65%;
+    --accent-foreground: 210 40% 98%;
+    
+    /* Muted colors for subtle elements */
+    --muted: 242 20% 12%;
+    --muted-foreground: 240 15% 65%;
+    
+    /* Card and surface colors */
+    --card: 240 15% 8%;
+    --card-foreground: 210 40% 98%;
+    
+    /* Interactive elements */
+    --popover: 240 15% 8%;
+    --popover-foreground: 210 40% 98%;
+    --border: 240 20% 20%;
+    --input: 240 15% 12%;
+    --ring: 242 47% 58%;
+    
+    /* Destructive elements */
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    /* Gradients - flowing neural patterns */
+    --gradient-primary: linear-gradient(135deg, hsl(242 47% 58%) 0%, hsl(280 45% 45%) 50%, hsl(320 45% 65%) 100%);
+    --gradient-secondary: linear-gradient(180deg, hsl(222 15% 4%) 0%, hsl(242 25% 8%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(240 15% 8% / 0.8) 0%, hsl(242 20% 12% / 0.6) 100%);
+    --gradient-neural: radial-gradient(circle at 30% 40%, hsl(242 47% 58% / 0.3) 0%, transparent 50%),
+                      radial-gradient(circle at 70% 60%, hsl(320 45% 65% / 0.2) 0%, transparent 50%);
+    --gradient-hero: linear-gradient(135deg, hsl(222 15% 4%) 0%, hsl(242 25% 8%) 30%, hsl(242 35% 12%) 100%);
+    
+    /* Shadows and glows */
+    --shadow-neural: 0 8px 32px hsl(242 47% 58% / 0.15);
+    --shadow-card: 0 10px 30px -10px hsl(222 15% 4% / 0.8);
+    --glow-primary: 0 0 40px hsl(242 47% 58% / 0.4);
+    --glow-accent: 0 0 30px hsl(320 45% 65% / 0.3);
+    
+    /* Animation and transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-neural: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Spacing and rhythm */
+    --spacing-neural: 1.618rem; /* Golden ratio for organic feel */
+    --radius: 1rem;
+    
+    /* Sidebar (if needed) */
+    --sidebar-background: 240 15% 6%;
+    --sidebar-foreground: 210 40% 95%;
+    --sidebar-primary: 242 47% 58%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 240 20% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 240 20% 20%;
+    --sidebar-ring: 242 47% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Neural animation effects */
+  .neural-pulse {
+    animation: neural-pulse 3s ease-in-out infinite;
+  }
+  
+  .neural-float {
+    animation: neural-float 6s ease-in-out infinite;
+  }
+  
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .neural-glow {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .card-neural {
+    background: var(--gradient-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@keyframes neural-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes neural-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
