@@ -90,7 +90,7 @@ const ThoughtInput = ({ onAddEntry, isAnalyzing }: ThoughtInputProps) => {
             <Type className="w-4 h-4" />
             Write
           </Button>
-          <Button
+          {/* <Button
             variant={inputMode === "voice" ? "glass" : "outline"}
             size="sm"
             onClick={() => setInputMode("voice")}
@@ -98,7 +98,7 @@ const ThoughtInput = ({ onAddEntry, isAnalyzing }: ThoughtInputProps) => {
           >
             <Mic className="w-4 h-4" />
             Speak
-          </Button>
+          </Button> */}
         </div>
       </div>
 

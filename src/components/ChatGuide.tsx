@@ -46,7 +46,8 @@ const ChatGuide = ({ graphContext }: ChatGuideProps) => {
 
   return (
     <Card className="card-neural p-6 space-y-4">
-      <h3 className="text-xl font-semibold">Chat with Your AI Guide</h3>
+      <h3 className="text-xl font-semibold">Chat with your AI companion, <span className="italic">Meliora</span></h3>
+      <h6 className="text-l font-semibold italic">Towards Better Things...</h6>
       <div className="h-64 overflow-y-auto space-y-4 pr-4 border border-border/50 rounded-lg p-4 bg-background/50">
         {messages.map((msg, i) => (
           <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -59,7 +60,7 @@ const ChatGuide = ({ graphContext }: ChatGuideProps) => {
       </div>
       <div className="flex gap-2">
         <TextareaAutosize
-          minRows={1}
+          minRows={2}
           maxRows={5}
           placeholder="Ask about your graph or for advice..."
           value={input}
