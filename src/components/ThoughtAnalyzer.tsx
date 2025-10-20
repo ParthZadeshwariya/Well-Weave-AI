@@ -5,7 +5,7 @@ export interface ThoughtNode {
   label: string;
   category: 'emotion' | 'person' | 'activity' | 'place' | 'concept' | 'trigger';
   intensity: number;
-  connections: string[];
+  connections: { id: string; strength: number }[];
   color: string;
   entries: string[]; // Store which entries this node appears in
 }
@@ -63,7 +63,7 @@ class ThoughtAnalyzer {
       throw new Error('Gemini API key is required. Set VITE_GEMINI_API_KEY in your environment.');
     }
     this.genAI = new GoogleGenerativeAI(apiKey);
-    this.model = this.genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    this.model = this.genAI.getGenerativeModel({ model: "gemini-2.5-pro" });
   }
 
   /**
@@ -251,7 +251,7 @@ class ThoughtAnalyzer {
 
     // Calculate connections based on co-occurrence in entries
     merged.forEach(node => {
-      const connections: string[] = [];
+      const connections: { id: string; strength: number }[] = []; // <-- This line is changed
 
       merged.forEach(otherNode => {
         if (node.id !== otherNode.id) {
@@ -261,7 +261,8 @@ class ThoughtAnalyzer {
           );
 
           if (sharedEntries.length > 0) {
-            connections.push(otherNode.id);
+            // Store the ID *and* the strength (number of shared entries)
+            connections.push({ id: otherNode.id, strength: sharedEntries.length }); // <-- This line is changed
           }
         }
       });
